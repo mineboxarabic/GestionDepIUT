@@ -25,7 +25,7 @@ class Home extends BaseController
     	try 
     	{
 	    	$depIUTModel = model('App\Models\DepIUTModel');    
-  	  	$depIUTs = $depIUTModel->findAll();
+  	  		$depIUTs = $depIUTModel->findAll();
     		$data = ['depIUTs' => $depIUTs ];
     		return view('Entete', ['titre' => 'Liste de départements IUT'] ) . 
     					 view('listerDepIUTs', $data) .
