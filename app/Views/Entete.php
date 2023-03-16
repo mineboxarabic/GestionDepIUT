@@ -41,6 +41,22 @@
         </div>
         <div style="display:inline-block;width:10%;margin: 5px;">
             <div style="display:inline-block;width:100%;margin: 5px;">
+                <a href="<?= base_url() ?><?= route_to('ListerNotes') ?>">Lister les Notes</a>
+            </div>
+            <div style="display:inline-block;width:100%;margin: 5px;">
+                <a href="<?= base_url() ?><?= route_to('CreerNote') ?>">Créer une Notes</a>
+            </div>
+        </div>
+        <div style="display:inline-block;width:10%;margin: 5px;">
+            <div style="display:inline-block;width:100%;margin: 5px;">
+                <a href="<?= base_url() ?><?= route_to('ListerControles') ?>">Lister les Controles</a>
+            </div>
+            <div style="display:inline-block;width:100%;margin: 5px;">
+                <a href="<?= base_url() ?><?= route_to('CreerControle') ?>">Créer une Controle</a>
+            </div>
+        </div>
+        <div style="display:inline-block;width:10%;margin: 5px;">
+            <div style="display:inline-block;width:100%;margin: 5px;">
                 <a href="<?= base_url() ?>/Vue/listerSemestres.php">Lister les semestres</a>
             </div>
             <div style="display:inline-block;width:100%;margin: 5px;">
