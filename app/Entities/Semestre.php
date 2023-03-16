@@ -1,4 +1,3 @@
-<!-- id	nom	credits	description	formation-->
 <?php 
 namespace App\Entities;
 
@@ -23,7 +22,7 @@ class Semestre extends Entity
         return $this->attributes["description"];
     }
 
-    public function getFormation() : string
+    public function getFormation() : string 
     {
         return $this->attributes["formation"];
     }

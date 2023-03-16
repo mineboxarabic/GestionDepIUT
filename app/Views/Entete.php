@@ -57,10 +57,10 @@
         </div>
         <div style="display:inline-block;width:10%;margin: 5px;">
             <div style="display:inline-block;width:100%;margin: 5px;">
-                <a href="<?= base_url() ?>/Vue/listerSemestres.php">Lister les semestres</a>
+            <a href="<?= base_url() ?><?= route_to('ListerSemestres') ?>">Lister les semestres</a>
             </div>
             <div style="display:inline-block;width:100%;margin: 5px;">
-                <a href="<?= base_url() ?>/Vue/formSemestre.php">Créer un semestre</a>
+            <a href="<?= base_url() ?><?= route_to('CreerSemestre') ?>">Créer un semestre</a>
             </div>
         </div>
         <div style="display:inline-block;width:10%;margin: 5px;">

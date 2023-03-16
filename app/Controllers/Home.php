@@ -288,13 +288,13 @@ class Home extends BaseController
     {
     	try 
     	{
-				$formationModel = model('App\Models\FormationModel');
-				$formation = $formationModel->find($id); 
+			$formationModel = model('App\Models\FormationModel');
+			$formation = $formationModel->find($id); 
     		$depIUTModel = model('App\Models\DepIUTModel');
     		$depIUTs = $depIUTModel->findAll();
     		$data = ['titre' => 'Consulter une formation', 
-    						 'formation' => $formation, 
-    						 'depIUTs' => $depIUTs];
+							'formation' => $formation, 
+							'depIUTs' => $depIUTs];
     		return view('Entete', $data ) . 
     					 view('consulterFormation', $data) .
     					 view('PiedDePage', $data);
@@ -324,10 +324,10 @@ class Home extends BaseController
 				// soit déclenchée si un problème est rencontrée avec la base de données.  
 				$connexion->transException(true)->transStart();  	  	
 				$formation = [ "nom" => $nom, 
-											 "pn" => $pn,
-											 "capacite" => $capacite, 
-											 "description" => $description, 
-											 "depIUT" => $depIUT];
+								"pn" => $pn,
+								"capacite" => $capacite, 
+								"description" => $description, 
+								"depIUT" => $depIUT];
 				// Actualisation avec le modèle.							 
 				$res = $formationModel->update($id, $formation);
 				$connexion->transComplete();
