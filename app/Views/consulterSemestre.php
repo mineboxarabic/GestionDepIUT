@@ -3,6 +3,10 @@
     <table>
         <!--id nom credits description formation-->
         <tr>
+            <td>id : </td>
+            <td><input name="id" type="text" value="<?=$Semestre->getId()?>" readonly /></td>
+        </tr>
+        <tr>
             <td>Nom : </td>
             <td><input name="nom" type="text" value="<?=$Semestre->getNom()?>" /></td>
         </tr>

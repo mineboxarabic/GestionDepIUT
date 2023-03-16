@@ -133,5 +133,37 @@
             }
             
         }
+
+
+        public function EliminerSemestre($id){
+            try 
+            {
+                $SemestreModel = model('App\Models\SemestreModel');
+                $SemestreModel->delete($id);
+                return redirect()->route('ListerSemestres');
+            }
+            catch(\Exception $e)
+            {    		
+                return view('pageErreur', ['exception' => $e]);
+            }
+        }
+    
+        public function restaurerSemestre($id){
+            try{
+                $SemestreModel = model('App\Models\SemestreModel');
+                $builder = $SemestreModel->builder();
+                $connexion = $builder->db();
+                // Début de la transaction.
+                $connexion->transException(true)->transStart();
+                $dataFormation = ["deleted" => null];
+                $res = $SemestreModel->update($id, $dataFormation);
+                $connexion->transComplete();
+                return redirect()->route('ListerSemestres');
+            }
+            catch(\Exception $e)
+            {    		
+                return view('pageErreur', ['exception' => $e]);
+            }
+        }
     }
 ?>

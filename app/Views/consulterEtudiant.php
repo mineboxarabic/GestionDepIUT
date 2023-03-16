@@ -1,7 +1,11 @@
 <H2>Formulaire de création d'un(e) Etudiant(e)</H2>
-<form method="POST" action="<?php echo base_url(); ?><?= route_to('AjouterEtudiant') ?>">
+<form method="POST" action="<?php echo base_url(); ?><?= route_to('ModifierEtudiant') ?>">
     <table>
         <!-- nom	prenom	adresse	naissance	utilisateur	motDePasse	role	formation-->
+        <tr>
+            <td>dni : </td>
+            <td><input name="dni" type="text" value=<?=$Etudiant->getDni()?> readonly/></td>
+        </tr>
         <tr>
             <td>Nom : </td>
             <td><input name="nom" type="text" value="<?=$Etudiant->getNom()?>" /></td>
