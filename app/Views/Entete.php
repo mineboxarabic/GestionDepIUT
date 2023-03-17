@@ -65,10 +65,10 @@
         </div>
         <div style="display:inline-block;width:10%;margin: 5px;">
             <div style="display:inline-block;width:100%;margin: 5px;">
-                <a href="<?= base_url() ?>/Vue/listerUEs.php">Lister les unités d'enseignement</a>
+            <a href="<?= base_url() ?><?= route_to('ListerUEs') ?>">Lister les unités d'enseignement</a>
             </div>
             <div style="display:inline-block;width:100%;margin: 5px;">
-                <a href="<?= base_url() ?>/Vue/formUE.php">Créer une unité d'enseignement</a>
+            <a href="<?= base_url() ?><?= route_to('CreerUE') ?>">Créer une unité d'enseignement</a>
             </div>
         </div>
         <div style="display:inline-block;width:10%;margin: 5px;">

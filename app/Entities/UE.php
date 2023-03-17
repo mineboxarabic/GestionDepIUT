@@ -1,4 +1,3 @@
-<!-- id	code	credits	volume	description	semestre-->
 <?php 
 namespace App\Entities;
 
@@ -27,7 +26,7 @@ class UE extends Entity
     {
         return $this->attributes["description"];
     }
-    public function getSemestre() : string
+    public function getSemestre()
     {
         return $this->attributes["semestre"];
     }
