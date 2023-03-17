@@ -1,4 +1,3 @@
-<!-- id	code	nom	credits	volume	description	ue	-->
 <?php 
 namespace App\Entities;
 
@@ -31,7 +30,7 @@ class Module extends Entity
     {
         return $this->attributes["description"];
     }
-    public function getUe() : string
+    public function getUe()
     {
         return $this->attributes["ue"];
     }

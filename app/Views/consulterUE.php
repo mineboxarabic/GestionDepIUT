@@ -31,9 +31,9 @@
 
                         foreach ($Semestres as $semestre) {
                             if($semestre->getId() == $UE->getSemestre()){
-                                echo "<option value='" . $semestre->getId() . "' selected>" . $semestre->getNom() . "</option>";
+                                echo "<option value='" . $semestre->getId() . "' selected>" . $semestre->getCode() . "</option>";
                             }else{
-                                echo "<option value='" . $semestre->getId() . "'>" . $semestre->getNom() . "</option>";
+                                echo "<option value='" . $semestre->getId() . "'>" . $semestre->getCode() . "</option>";
                             }
                         }
                     } 

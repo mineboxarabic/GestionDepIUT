@@ -4,7 +4,9 @@ Utilisateur
 Etudiant
 Semestre
 UE id	code	credits	volume	description	semestre
-Module
+Module id	code	nom	credits	volume	description	ue
+
+
 Intervenant
 Assurer
 Seance

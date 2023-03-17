@@ -73,10 +73,10 @@
         </div>
         <div style="display:inline-block;width:10%;margin: 5px;">
             <div style="display:inline-block;width:100%;margin: 5px;">
-                <a href="<?= base_url() ?>/Vue/listerModules.php">Lister les modules</a>
+            <a href="<?= base_url() ?><?= route_to('ListerModules') ?>">Lister les modules</a>
             </div>
             <div style="display:inline-block;width:100%;margin: 5px;">
-                <a href="<?= base_url() ?>/Vue/formModule.php">Créer un module</a>
+            <a href="<?= base_url() ?><?= route_to('CreerModule') ?>">Créer un module</a>
             </div>
         </div>
         <div style="display:inline-block;width:10%;margin: 5px;">
