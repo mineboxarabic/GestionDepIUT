@@ -1,4 +1,3 @@
-<!-- id	justifie	commentaires	seance	etudiant-->
 <?php 
 namespace App\Entities;
 

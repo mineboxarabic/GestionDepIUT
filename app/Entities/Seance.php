@@ -1,4 +1,3 @@
-<!-- id	date	heure	duree	titre	salle	description	type	module		-->
 <?php 
 namespace App\Entities;
 
