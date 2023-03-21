@@ -28,7 +28,13 @@
         </tr>
         <tr>
             <td>role : </td>
-            <td><input name="role" type="text" /></td>
+            <td>
+                <select name="role">
+                    <option value="Etudiant">Etudiant</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Professeur">Professeur</option>
+                </select>
+            </td>
         </tr>
         <tr>
             <td>formation : </td>

@@ -1,4 +1,3 @@
-<!-- 	id	debut	fin	intervenant	module	-->
 <?php 
 namespace App\Entities;
 

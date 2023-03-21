@@ -3,7 +3,7 @@ namespace App\Entities;
 
 use CodeIgniter\Entity\Entity;
 
-class Etudiant extends Entity
+class Note extends Entity
 {
    //id	note	commentaires	controle	etudiant
 

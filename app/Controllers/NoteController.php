@@ -28,10 +28,14 @@
 
         function creerNote(){
 
-            $formationModel = new \App\Models\EtudiantModel();
-            $etudiants = $formationModel->findAll();
+            $etudiantsModel = model('App\Models\EtudiantModel');
+            $etudiants = $etudiantsModel->findAll();
+
+            $controlesModel = model('App\Models\ControleModel');
+            $controles = $controlesModel->findAll();
             $etudiants = [
                 'etudiants' => $etudiants
+                ,'controles' => $controles
             ];
             $titre = [
                 'titre' => 'Créer un Note'
@@ -60,7 +64,7 @@
                     
                     $connexion->transComplete();
                     if ($res)							   	  	
-                    return redirect()->route('ListerEtudiants');
+                    return redirect()->route('ListerNotes');
                     
             }
             catch(\Exception $e)
@@ -69,6 +73,43 @@
             }
             
         }
+        public function modifierNote(){
+            try 
+            {	 //id	nom	credits	description	UE
+                $id = $this->request->getPost('id');
+                $note = $this->request->getPost('note');
+                $commentaires = $this->request->getPost('commentaires');
+                $controle = $this->request->getPost('controle');
+                $etudiant = $this->request->getPost('etudiant');
+
+                    $NoteModel = model('App\Models\NoteModel');
+                    $builder = $NoteModel->builder();
+                    $connexion = $builder->db();
+
+
+                    $connexion->transException(true)->transStart();	  	
+                    $Note = [
+                        'note' => $note,
+                        'commentaires' => $commentaires,
+                        'controle' => $controle,
+                        'etudiant' => $etudiant
+                    ];
+
+                    
+                        $res = $NoteModel->update($id, $Note);
+
+                    $connexion->transComplete();
+                    if ($res)							   	  	
+                    return redirect()->route('ListerNotes');
+                    
+            }
+            catch(\DatabaseException $e)
+            {    		
+                return view('pageErreur', ['exception' => $e]);
+            }
+            
+        }
+
 
         public function consulterNote($dni)
         {
@@ -76,7 +117,15 @@
             {
                 $noteModel = model('App\Models\NoteModel');
                 $note = $noteModel->withDeleted()->find($dni);
-                $data = ['Note' => $note ];
+
+                $etudiantsModel = model('App\Models\EtudiantModel');
+                $etudiants = $etudiantsModel->findAll();
+    
+                $controlesModel = model('App\Models\ControleModel');
+                $controles = $controlesModel->findAll();
+
+
+                $data = ['Note' => $note , 'etudiants' => $etudiants, 'controles' => $controles];
                 return view('Entete', ['titre' => 'Consulter un étudiant'] ) . 
                              view('consulterNote', $data).
                              view('PiedDePage');

@@ -90,8 +90,10 @@
             try 
             {
                 $etudiantModel = model('App\Models\EtudiantModel');
+                $formations =model('App\Models\FormationModel')->findAll();
+
                 $etudiant = $etudiantModel->withDeleted()->find($dni);
-                $data = ['Etudiant' => $etudiant ];
+                $data = ['formations'=>$formations ,'Etudiant' => $etudiant, "roles" => ['Professeur','Admin','Etudiant'] ];
                 return view('Entete', ['titre' => 'Consulter un étudiant'] ) . 
                              view('consulterEtudiant', $data).
                              view('PiedDePage');
@@ -101,7 +103,7 @@
                 return view('pageErreur', ['exception' => $e]);
             }
         }
-        public function modifierSemestre(){
+        public function modifierEtudiant(){
             try 
             {	 //dni nom prenom adresse naissance utilisateur motDePasse role formation 
                 $dni = $this->request->getPost('dni', FILTER_SANITIZE_STRING);

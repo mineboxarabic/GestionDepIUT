@@ -1,30 +1,26 @@
-<H2>Formulaire de création d'un(e) Etudiant(e)</H2>
-<form method="POST" action="<?php echo base_url(); ?><?= route_to('AjouterEtudiant') ?>">
+<H2>Formulaire de création d'un(e) Controle(e)</H2>
+<form method="POST" action="<?php echo base_url(); ?><?= route_to('AjouterControle') ?>">
     <table>
         <!-- id	type	duree	sujet	bareme	description	seance-->
-        <tr>
-            <td>id : </td>
-            <td><input name="id" type="text" /></td>
-        </tr>
         <tr> 
             <td>type : </td>
-            <td><input name="type" type="text" /></td>
+            <td><input maxlength="50" name="type" type="text" /></td>
         </tr>
         <tr>
             <td>duree : </td>
-            <td><input name="duree" type="text" /></td>
+            <td><input max="99999999999" name="duree" type="number" /></td>
         </tr>
         <tr>
             <td>sujet : </td>
-            <td><input name="sujet" type="text" /></td>
+            <td><input maxlength="1000" name="sujet" type="text" /></td>
         </tr>
         <tr>
             <td>bareme : </td>
-            <td><input name="bareme" type="text" /></td>
+            <td><input max="99999999999" name="bareme" type="number" /></td>
         </tr>
         <tr>
             <td>description : </td>
-            <td><input name="description" type="text" /></td>
+            <td><textarea maxlength="500" name="description" rows="4" cols="50"></textarea></td>
         </tr>
         <tr>
             <td>seance : </td>
@@ -33,7 +29,7 @@
                     <?php 
                     if (!is_null($seances)) {
                         foreach ($seances as $seance) {
-                            echo "<option value='" . $seance->getId() . "'>" . $seance->getNom() . "</option>";
+                            echo "<option value='" . $seance->getId() . "'>" . $seance->getTitre() . "</option>";
                         }
                     }
                     ?>

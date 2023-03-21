@@ -5,14 +5,18 @@ Etudiant
 Semestre
 UE id	code	credits	volume	description	semestre
 Module id	code	nom	credits	volume	description	ue
+Intervenant //dni	nom	prenom	adresse	naissance	numProf	statut	utilisateur	motDePasse	role depIUT
+Assurer // id	debut	fin	intervenant	module (autoincrement)
+Seance id	//date	heure	duree	titre	salle	description	type	module (autoincrement)
+Presence //id	justifie	commentaires	seance	etudiant (autoincrement)
 
 
-Intervenant
-Assurer
-Seance
-Presence
-Controle
-Note
+
+Controle //id	type	duree	sujet	bareme	description	seance (autoincrement)	
+Note //id	note	commentaires	controle	etudiant (autoincrement)
+
+Demande le prof pourqouoi quand je modifie un table avec un cle autoincrement il cree un nouveau
+row au lieu de modifier l'ancien row
 
 
 

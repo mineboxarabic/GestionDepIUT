@@ -1,4 +1,11 @@
 body {
-	background-color: lightblue;
+	background-color: rgb(251, 5, 5);
+	
+}
 
+.test{
+	background-color: red;
+}
+a{
+	background-color: red;
 }

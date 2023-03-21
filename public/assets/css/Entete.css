@@ -1,0 +1,138 @@
+
+/*
+	My color palette:
+*/
+:root{
+	--darkest: #03045e;
+	--dark: #0077b6;
+	--medium: #00b4d8;
+	--light: #90e0ef;
+	--lightest: #caf0f8;
+}
+
+body {
+	background: var(--darkest);
+	background: linear-gradient(0deg, var(--medium) 0%, var(--light) 100%);
+
+}
+.Main__Header{
+	display: grid;
+	/* add a gap*/
+	grid-gap: 10px;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+}
+/* Min__Header -> Choice__Container */
+.Main__Header .Choice__Container{
+	background-color: transparent;
+	border: 1px solid var(--lightest);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+
+	width: 100%;
+	height: 200px;
+	cursor: pointer;
+}
+.Main__Header .Choice__Container:hover{
+
+	transition: all 0.2s ease-in-out;
+	transform: scale(1.01);
+}
+/* Min__Header -> Choice__Container -> div*/
+.Main__Header .Choice__Container div{
+	background-color: var(--lightest);
+	width: 90%;
+	height: 40%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+	margin: 5px;
+	filter: drop-shadow(0px 0px 1px var(--darkest));
+	border-radius: 5px;
+
+}.Main__Header .Choice__Container div:hover{
+	background-color: var(--light);
+	transform: scale(1.01);
+	transition: all 0.2s ease-in-out;
+	filter: drop-shadow(0px 0px 0px var(--darkest));
+}
+
+.Main__Header .Choice__Container div:focus{
+	background-color: var(--darkest);
+
+}
+.active{
+	background-color: var(--medium);
+	transform: scale(1.04);
+}
+a{
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+
+}
+
+table{
+	position: relative;
+	border: 5px solid var(--light);
+	border-radius: 1em;
+	width: 98%;
+
+	color: var(--darkest);
+}
+table a{
+	color: var(--darkest);
+	text-decoration: none;
+	background-color: var(--lightest);
+	padding: 5px 0px;
+	filter: drop-shadow(0px 0px 1px var(--darkest));
+	border-radius: 5px;
+}
+table a:hover{
+	color: var(--darkest);
+	background-color: var(--medium);
+	transition: all 0.2s ease-in-out;
+}
+
+
+table tr{
+	border: 1px solid var(--lightest);
+	
+
+}
+table tr td{
+	border: 1px solid var(--lightest);
+	background-color: var(--light);
+	padding: 5px;
+
+}
+table tr th{
+	font-size: 1.4em;
+	font-weight: 100000;
+	font-family: 'Roboto', sans-serif;
+	border: 1px solid var(--lightest);
+	background-color: var(--dark);
+	padding: 5px;
+
+}
+
+
+.Main__Header div a {
+	color: var(--darkest);
+	text-decoration: none;
+	font-size: 1.5em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+	
+}

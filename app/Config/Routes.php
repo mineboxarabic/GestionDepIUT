@@ -1,7 +1,7 @@
 <?php
 
 namespace Config;
-
+$session = \Config\Services::session() ?? null;
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
@@ -33,17 +33,39 @@ $routes->get('/', 'Home::index');
 //DepIUT <- Formation <- Semestre <- UE <- Module <- Assurer -> Intervenant
 //Assurer <- Seance -> Contole <- Note
 //Etudiant <- Presence 
+
+/**
+ * Routes pour La session
+ */
+
+/**
+ * Routes pour les login.
+ */
+
+ $routes->add('/login', 'LoginController::login', ['as' => 'Login']);
+ $routes->post('/verifierLogin', 'LoginController::verifierLogin', ['as' => 'VerifierLogin']);
+ $routes->get('/logout', 'LoginController::logout', ['as' => 'Logout']);
+ $routes->get('/noAcces', 'LoginController::noAcces', ['as' => 'NoAcces']);
+$routes->get('/finirSession', 'LoginController::finirSession', ['as' => 'FinirSession']);
+
 /*
 * Routes pour les départements IUT.
 *
 */
-$routes->add('/listerDepIUTs', 'Home::listerDepIUTs', ['as' => 'ListerDepIUTs']);
-$routes->add('/creerDepIUT', 'Home::creerDepIUT', ['as' => 'CreerDepIUT']);
-$routes->post('/ajouterDepIUT', 'Home::ajouterDepIUT', ['as' => 'AjouterDepIUT']);
-$routes->get('/consulterDepIUT/(:alphanum)', 'Home::consulterDepIUT/$1', ['as' => 'ConsulterDepIUT']);
-$routes->post('/modifierDepIUT', 'Home::modifierDepIUT', ['as' => 'ModifierDepIUT']);
-$routes->get('/eliminerDepIUT/(:alphanum)' , 'Home::eliminerDepIUT/$1', ['as' => 'EliminerDepIUT']);
-$routes->get('/restaurerDepIUT/(:alphanum)' , 'Home::restaurerDepIUT/$1', ['as' => 'RestaurerDepIUT']);
+
+log_message('info', 'This is a log message');
+
+
+    log_message('info', 'This is a log message');
+    $routes->add( '/listerDepIUTs',($session->get('role') == "admin" ? 'Home::listerDepIUTs' :'LoginController::noAcces') , ['as' => 'ListerDepIUTs']);
+    $routes->add('/creerDepIUT', 'Home::creerDepIUT', ['as' => 'CreerDepIUT']);
+    $routes->post('/ajouterDepIUT', 'Home::ajouterDepIUT', ['as' => 'AjouterDepIUT']);
+    $routes->get('/consulterDepIUT/(:alphanum)', 'Home::consulterDepIUT/$1', ['as' => 'ConsulterDepIUT']);
+    $routes->post('/modifierDepIUT', 'Home::modifierDepIUT', ['as' => 'ModifierDepIUT']);
+    $routes->get('/eliminerDepIUT/(:alphanum)' , 'Home::eliminerDepIUT/$1', ['as' => 'EliminerDepIUT']);
+    $routes->get('/restaurerDepIUT/(:alphanum)' , 'Home::restaurerDepIUT/$1', ['as' => 'RestaurerDepIUT']);
+
+
 /*
 * Routes pour les formations.
 *
@@ -170,6 +192,8 @@ $routes->get('/consulterControle/(:alphanum)', 'ControleController::consulterCon
 $routes->post('/modifierControle', 'ControleController::modifierControle', ['as' => 'ModifierControle']);
 $routes->get('/eliminerControle/(:alphanum)' , 'ControleController::eliminerControle/$1', ['as' => 'EliminerControle']);
 $routes->get('/restaurerControle/(:alphanum)' , 'ControleController::restaurerControle/$1', ['as' => 'RestaurerControle']);
+
+
 
 
 

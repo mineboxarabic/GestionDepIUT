@@ -1,5 +1,6 @@
 <?php
-
+namespace Config;
+$session = \Config\Services::session();
 namespace App\Controllers;
 
 use CodeIgniter\I18n\Time;
@@ -29,7 +30,9 @@ class Home extends BaseController
 	    	$depIUTModel = model('App\Models\DepIUTModel');    
   	  	$depIUTs = $depIUTModel->withDeleted()->findAll();
     		$data = ['depIUTs' => $depIUTs ];
-    		return view('Entete', ['titre' => 'Liste de départements IUT'] ) . 
+			$session = \Config\Services::session();
+			$test = $session->get('role');
+    		return view('Entete', ['titre' => "Liste de départements IUT x$test "] ) . 
     					 view('listerDepIUTs', $data) .
     					 view('PiedDePage', $data);
     	}

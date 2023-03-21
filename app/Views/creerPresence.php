@@ -1,31 +1,32 @@
-<H2>Formulaire de création d'un(e) Etudiant(e)</H2>
-<form method="POST" action="<?php echo base_url(); ?><?= route_to('AjouterNote') ?>">
+<H2>Formulaire de création de Sceance</H2>
+<form method="POST" action="<?php echo base_url(); ?><?= route_to('AjouterPresence') ?>">
     <table>
-        <!-- id	note	commentaires	controle	etudiant-->
+        <!-- id	justifie	commentaires	seance	etudiant	-->
         <tr>
-            <td>note : </td>
-            <td><input name="note" type="number" max="20" min="0" /></td>
-        </tr>
-        <tr> 
-            <td>commentaires : </td>
-            <td><textarea name="commentaires" rows="5" cols="33"></textarea></td>
+            <td>Justifie : </td>
+            <td><input name="justifie" type="text" /></td>
         </tr>
         <tr>
-            <td>controle : </td>
+            <td>Commentaires : </td>
+            <td><textarea name="commentaires" rows="5" copls="33"></textarea></td>
+        </tr>
+
+        <tr>
+            <td>Seance : </td>
             <td>
-                <select name="controle">
+                <select name="seance">
                     <?php 
-                    if (!is_null($controles)) {
-                        foreach ($controles as $controle) {
-                            echo "<option value='" . $controle->getId() . "'>" . $controle->getType() . "</option>";
+                    if (!is_null($seances)) {
+                        foreach ($seances as $seance) {
+                            echo "<option value='" . $seance->getId() . "'>" . $seance->getTitre() . "</option>";
                         }
                     }
                     ?>
                 </select>
             </td>
-        </tr> 
+        </tr>
         <tr>
-            <td>etudiant : </td>
+            <td>Etudiant : </td>
             <td>
                 <select name="etudiant">
                     <?php 
@@ -38,6 +39,10 @@
                 </select>
             </td>
         </tr>
+
+        
+
+        
         <tr>
             <td><input type="submit" value="Envoyer" /></td>
             <td><input type="reset" value="Effacer"></td>

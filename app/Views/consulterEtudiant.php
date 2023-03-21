@@ -1,4 +1,4 @@
-<H2>Formulaire de création d'un(e) Etudiant(e)</H2>
+<H2>Formulaire de consultation d'un(e) Etudiant(e)</H2>
 <form method="POST" action="<?php echo base_url(); ?><?= route_to('ModifierEtudiant') ?>">
     <table>
         <!-- nom	prenom	adresse	naissance	utilisateur	motDePasse	role	formation-->
@@ -16,7 +16,7 @@
         </tr>
         <tr>
             <td>adresse : </td>
-            <td><textarea name="adresse" rows="5" cols="33" value=<?=$Etudiant->getAdresse()?>></textarea></td>
+            <td><textarea name="adresse" rows="5" cols="33" ><?=$Etudiant->getAdresse()?></textarea></td>
         </tr>
         <tr>
             <td>naissance : </td>
@@ -32,7 +32,13 @@
         </tr>
         <tr>
             <td>role : </td>
-            <td><input name="role" type="text" value=<?=$Etudiant->getRole()?> /></td>
+            <td>
+                <select name="role" >
+                    <option value="Etudiant" <?php if($Etudiant->getRole() == "Etudiant") echo "selected"; ?>>Etudiant</option>
+                    <option value="Admin" <?php if($Etudiant->getRole() == "Admin") echo "selected"; ?>>Admin</option>
+                    <option value="Professeur" <?php if($Etudiant->getRole() == "Professeur") echo "selected"; ?>>Professeur</option>
+                </select>
+            </td>
         </tr>
         <tr>
             <td>formation : </td>
@@ -41,7 +47,7 @@
                     <?php 
                     if (!is_null($formations)) {
                         foreach ($formations as $formation) {
-                            if($formation->getId() == $Etudiant->getFormation()->getId()){
+                            if($formation->getId() == $Etudiant->getFormation()){
                                 echo "<option value='" . $formation->getId() . "' selected>" . $formation->getNom() . "</option>";
                             }
                             else{

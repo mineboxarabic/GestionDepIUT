@@ -8,8 +8,7 @@
 		foreach($Notes as $note) {
 			echo "<tr>";
 			echo "<td>".$note->getId()."</td>";
-			echo "<td>".$note->getNom()."</td>";
-            echo "<td>".$note->getPrenom()."</td>";
+			echo "<td>".$note->getNote()."</td>";
 			echo "<td><a href='".base_url()."/".route_to('ConsulterNote', $note->getId())."'>Consulter</td>";
 			if ($note->getDeleted() == null) {
 				echo "<td><a href='".base_url()."/".route_to('EliminerNote', $note->getId())."'>Éliminer</td>";

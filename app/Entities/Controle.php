@@ -1,10 +1,9 @@
-<!-- id	type	duree	sujet	bareme	description	seance	->
 <?php 
 namespace App\Entities;
 
 use CodeIgniter\Entity\Entity;
 
-class Seance extends Entity
+class Controle extends Entity
 {
     public function getId() : string
     {
